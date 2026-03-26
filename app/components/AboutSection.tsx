@@ -19,31 +19,22 @@ const AboutSection = () => {
                 {/* Subtle Background Elements */}
                 <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
                     {/* Top Left Watermark Logo */}
-                    <div className="absolute -left-10 top-0 w-64 h-64 grayscale opacity-20">
+                    <div className="absolute -left-10 bottom-0 w-64 h-64 grayscale opacity-30">
                         <Image
-                            src="/assets/watermark-logo.png"
+                            src="/assets/logo.png"
                             alt="watermark"
                             fill
                             className="object-contain"
                         />
                     </div>
-                    {/* Subtle Background Image (Trucks/Vans) */}
-                    <div className="absolute inset-0 opacity-10">
-                        <Image
-                            src="/assets/vans-bg.png"
-                            alt="background-fleet"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
                 </div>
 
                 {/* Content Card */}
-                <div className="relative z-10 max-w-4xl bg-gray-100/80 backdrop-blur-sm p-8 md:p-12 text-center shadow-sm">
+                <div className="relative z-10 max-w-4xl bg-gray-200/80 backdrop-blur-sm p-8 md:p-12 text-center shadow-sm">
                     <h2 className="text-3xl md:text-4xl font-serif text-black mb-6 italic">
                         Who we are?
                     </h2>
-                    <p className="text-gray-700 leading-relaxed text-sm md:text-base uppercase tracking-tight">
+                    <p className="text-gray-700 leading-relaxed text-sm md:text-base tracking-tight">
                         Established In 2009, As A Small-scale Packing Venture,
                         <span className="font-bold"> AL NAJAH PAPER BOXES AND PACKAGES </span>
                         as Come A Long Way To Be One Of The Leading Rigid Box And Soft Box
@@ -60,12 +51,12 @@ const AboutSection = () => {
             {/* 2. BOTTOM BLUE SECTION (Services Grid) */}
             <div className="relative bg-[#33C2D6] py-10 px-6 lg:px-24">
                 {/* Right Side Watermark */}
-                <div className="absolute right-0 top-0 h-full w-1/3 opacity-20 pointer-events-none">
+                <div className="absolute right-0 top-0 h-full w-1/3 pointer-events-none z-0">
                     <Image
-                        src="/assets/watermark-logo.png"
-                        alt="watermark"
+                        src="/assets/logo.png"
+                        alt="Al Najah watermark"
                         fill
-                        className="object-contain object-right"
+                        className="object-contain object-right opacity-10 brightness-0 invert"
                     />
                 </div>
 

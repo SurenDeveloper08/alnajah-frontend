@@ -6,6 +6,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import SearchIcon from "@mui/icons-material/Search";
 import SearchInput from "./SearchInput"; // Ensure this is also "use client"
 import Bgp from "@/app/assets/bg-patternx.png"
 import Hero from "@/app/assets/hero-main.png"
@@ -18,8 +20,18 @@ const LandingPage = () => {
   return (
     <div className="relative w-full min-h-screen overflow-hidden bg-white font-sans select-none">
       {/* Top Accent Line */}
-      <div className="absolute top-0 left-0 w-full h-[5px] bg-cyan-600 z-[60] shadow-sm" />
-
+      {/* <div className="absolute top-0 left-0 w-full h-[5px] bg-cyan-600 z-[60] shadow-sm" /> */}
+      <div className="bg-cyan-500 relative z-[100] w-full border-b border-gray-100 py-2 px-6 lg:px-16 flex justify-end items-center gap-8 text-[11px] font-medium text-white">
+        <a href="tel:+97167486990" className="flex items-center gap-2 hover:text-white transition-colors">
+          <PhoneIcon className="!text-sm text-white" /> +971 6 7486990
+        </a>
+        <a href="https://wa.me/971567135858" className="flex items-center gap-2 hover:text-white transition-colors">
+          <WhatsAppIcon className="!text-sm text-white" /> +971 56 713 5858
+        </a>
+        <a href="mailto:alnajahpp@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
+          <EmailIcon className="!text-sm text-white" /> alnajahpp@gmail.com
+        </a>
+      </div>
       {/* 1. BACKGROUND PATTERN */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -53,57 +65,50 @@ const LandingPage = () => {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative z-50 w-full px-6 py-4 lg:px-16 lg:py-6"
+        className="relative z-50 w-full px-6 lg:px-16 py-6"
       >
-        {/* ROW 1: Logo, Search, Contacts */}
-        <div className="hidden lg:grid grid-cols-12 items-center w-full mb-4">
-          <div className="col-span-2">
+        {/* MAIN NAVIGATION ROW: Logo + Menus (Left) | Search (Right) */}
+        <div className="flex items-center justify-between w-full">
+
+          {/* Left Group: Logo and Nav Links */}
+          <div className="flex items-center gap-12">
+            {/* Logo */}
             <Link href="/">
               <Image
                 src={Logo}
                 alt="Logo"
-                width={70}
-                height={70}
-                className="brightness-110 contrast-125 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                width={80}
+                height={80}
+                className="brightness-110 drop-shadow-sm"
               />
             </Link>
+
+            {/* Navigation Menus */}
+            <nav className="hidden lg:flex gap-6 text-gray-400 font-bold text-[11px] uppercase tracking-[0.2em]">
+              {navLinks.map((link) => (
+                <Link
+                  key={link}
+                  href={link === "Home" ? "/" : `/${link.toLowerCase().replace(" ", "-")}`}
+                  className="hover:text-cyan-600 transition-colors whitespace-nowrap"
+                >
+                  {link}
+                </Link>
+              ))}
+            </nav>
           </div>
-          
-          <div className="col-span-3 relative pl-4">
-            <SearchInput />
+
+          {/* Right Group: Search Only */}
+          <div className="w-full max-w-[200px] lg:max-w-[280px]">
+           <div className="relative w-full">
+      <input
+        type="text"
+        placeholder="Search..."
+        className="w-full bg-gray-100/50 border border-gray-200 rounded-full py-2 px-5 pl-10 text-xs outline-none focus:border-cyan-500 focus:bg-white transition-all text-gray-600 italic"
+      />
+      <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 !text-gray-400 !text-lg" />
+    </div>
           </div>
 
-          <div className="col-span-3" />
-
-          <div className="col-span-4 text-right">
-            <div className="flex justify-end gap-8 text-gray-600 font-normal text-sm lg:text-base xl:text-lg whitespace-nowrap">
-              <a href="tel:+97167486990" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <PhoneIcon fontSize="small" /> +971 6 7486990
-              </a>
-              <a href="mailto:alnajahpp@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <EmailIcon fontSize="small" /> alnajahpp@gmail.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* ROW 2: Browse Button & Nav */}
-        <div className="flex flex-col items-start gap-2">
-          <button className="bg-cyan-600 text-white px-4 py-1.5 text-[10px] lg:text-xs font-bold flex items-center gap-2 shadow-sm min-w-fit hover:bg-cyan-800 transition-all">
-            <span className="text-lg leading-none">≡</span> BROWSE CATEGORIES
-          </button>
-
-          <nav className="flex gap-[clamp(1rem,1vw,3rem)] text-gray-500 font-medium text-[13px] lg:text-xs uppercase tracking-widest pt-2 pb-16 w-full lg:w-auto">
-            {navLinks.map((link) => (
-              <Link
-                key={link}
-                href={link === "Home" ? "/" : `/${link.toLowerCase().replace(" ", "-")}`}
-                className="hover:text-primary transition-colors whitespace-nowrap"
-              >
-                {link}
-              </Link>
-            ))}
-          </nav>
         </div>
       </motion.header>
 
@@ -114,16 +119,16 @@ const LandingPage = () => {
         transition={{ delay: 0.8, duration: 0.8 }}
         className="absolute left-6 lg:left-16 top-[30%] xl:top-[33%] z-[45]"
       >
-        <p className="text-[clamp(1rem,5vw,1.5rem)] text-cyan-700 font-normal leading-none italic">
+        <p className="text-[clamp(1rem,5vw,1.5rem)] text-cyan-700 font-normal leading-none">
           "Making your
         </p>
-        <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold text-primary leading-[0.75] my-4 drop-shadow-sm">
+        <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold text-cyan-500 leading-[0.75] my-4 drop-shadow-sm">
           Print Dreams"
         </h1>
-        <p className="text-[clamp(1rem,5vw,1.5rem)] font-normal text-cyan-700 italic">
+        <p className="text-[clamp(1rem,5vw,1.5rem)] font-normal text-cyan-700">
           Come True
         </p>
-        
+
         {/* Animated Dots */}
         <div className="flex gap-2 mt-6">
           {[0, 1, 2].map((i) => (
