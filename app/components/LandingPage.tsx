@@ -84,7 +84,7 @@ const LandingPage = () => {
             </Link>
 
             {/* Navigation Menus */}
-            <nav className="hidden lg:flex gap-6 text-gray-400 font-bold text-[11px] uppercase tracking-[0.2em]">
+            <nav className="hidden lg:flex gap-6 text-gray-400 font-semibold text-[11px] uppercase tracking-[0.2em]">
               {navLinks.map((link) => (
                 <Link
                   key={link}
@@ -119,13 +119,13 @@ const LandingPage = () => {
         transition={{ delay: 0.8, duration: 0.8 }}
         className="absolute left-6 lg:left-16 top-[30%] xl:top-[33%] z-[45]"
       >
-        <p className="text-[clamp(1rem,5vw,1.5rem)] text-cyan-700 font-normal leading-none">
+        <p className="text-[clamp(1rem,5vw,1.5rem)] text-gray-600 font-normal leading-none">
           "Making your
         </p>
         <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold text-cyan-500 leading-[0.75] my-4 drop-shadow-sm">
           Print Dreams"
         </h1>
-        <p className="text-[clamp(1rem,5vw,1.5rem)] font-normal text-cyan-700">
+        <p className="text-[clamp(1rem,5vw,1.5rem)] font-normal text-gray-600">
           Come True
         </p>
 

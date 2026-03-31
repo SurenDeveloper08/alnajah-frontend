@@ -6,6 +6,9 @@ import ProcessImage from "./components/ProcessImage";
 import ProductionWorkflow from "./components/ProductionWorkflow";
 import CategoriesSection from "./components/CategoriesSection";
 import Footer from "./components/Footer";
+import ProductCategories from "./components/ProductCategories";
+import ServiceGrid from "./components/ServiceGrid";
+import ContactSection from "./components/Contact";
 export default function Home() {
   return (
     <>
@@ -21,9 +24,11 @@ export default function Home() {
       </div>
       <AboutSection />
       <ProcessImage />
+      <ServiceGrid/>
       <ProductionWorkflow />
-      <CategoriesSection />
-      <Footer/>
+      <ProductCategories />
+      <ContactSection />
+      <Footer />
     </>
   );
 }
